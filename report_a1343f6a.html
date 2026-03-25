@@ -1,0 +1,85 @@
+
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <style>
+                body { font-family: sans-serif; background: #f4f7f6; padding: 20px; }
+                .container { background: white; padding: 20px; border-radius: 5px; }
+                th { background: #3498db; color: white; padding: 10px; }
+                td { padding: 10px; border-bottom: 1px solid #ddd; }
+                .risk-High { color: red; font-weight: bold; }
+                .risk-Medium { color: orange; font-weight: bold; }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h1>安全掃描報告 - ID: a1343f6a</h1>
+                <p>目標: http://127.0.0.1:8000</p>
+                <hr>
+                <table>
+                    <thead><tr><th>類型</th><th>風險</th><th>位置</th><th>建議</th></tr></thead>
+                    <tbody>
+        
+                <tr>
+                    <td>Sensitive File Exposure</td>
+                    <td><span class="risk-High">High</span></td>
+                    <td><code>http://127.0.0.1:8000/.env</code></td>
+                    <td>禁止外部存取敏感目錄（如 .git, .env），移除伺服器上的備份檔。</td>
+                </tr>
+            
+                <tr>
+                    <td>Sensitive File Exposure</td>
+                    <td><span class="risk-High">High</span></td>
+                    <td><code>http://127.0.0.1:8000/.git/config</code></td>
+                    <td>禁止外部存取敏感目錄（如 .git, .env），移除伺服器上的備份檔。</td>
+                </tr>
+            
+                <tr>
+                    <td>Sensitive File Exposure</td>
+                    <td><span class="risk-High">High</span></td>
+                    <td><code>http://127.0.0.1:8000/phpinfo.php</code></td>
+                    <td>禁止外部存取敏感目錄（如 .git, .env），移除伺服器上的備份檔。</td>
+                </tr>
+            
+                <tr>
+                    <td>SQLi</td>
+                    <td><span class="risk-High">High</span></td>
+                    <td><code>http://127.0.0.1:8000/login</code></td>
+                    <td>使用預編譯查詢 (Prepared Statements)，避免拼接字串。</td>
+                </tr>
+            
+                <tr>
+                    <td>SQLi</td>
+                    <td><span class="risk-High">High</span></td>
+                    <td><code>http://127.0.0.1:8000/login</code></td>
+                    <td>使用預編譯查詢 (Prepared Statements)，避免拼接字串。</td>
+                </tr>
+            
+                <tr>
+                    <td>XSS</td>
+                    <td><span class="risk-Medium">Medium</span></td>
+                    <td><code>http://127.0.0.1:8000/search</code></td>
+                    <td>進行 HTML 實體編碼 (Encoding) 並實施 CSP 政策。</td>
+                </tr>
+            
+                <tr>
+                    <td>Directory Traversal</td>
+                    <td><span class="risk-High">High</span></td>
+                    <td><code>http://127.0.0.1:8000/view_file</code></td>
+                    <td>限制檔案存取路徑，使用白名單檢查輸入檔案名稱。</td>
+                </tr>
+            
+                <tr>
+                    <td>Directory Traversal</td>
+                    <td><span class="risk-High">High</span></td>
+                    <td><code>http://127.0.0.1:8000/view_file</code></td>
+                    <td>限制檔案存取路徑，使用白名單檢查輸入檔案名稱。</td>
+                </tr>
+            
+                <tr>
+                    <td>Directory Traversal</td>
+                    <td><span class="risk-High">High</span></td>
+                    <td><code>http://127.0.0.1:8000/view_file</code></td>
+                    <td>限制檔案存取路徑，使用白名單檢查輸入檔案名稱。</td>
+                </tr>
+            </tbody></table></div></body></html>

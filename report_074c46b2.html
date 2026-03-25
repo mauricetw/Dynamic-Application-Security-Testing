@@ -1,0 +1,79 @@
+
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>弱點掃描報告 - 074c46b2</title>
+            <style>
+                body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; margin: 40px; }
+                .container { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+                h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+                .summary { margin-bottom: 30px; background: #e8f4fd; padding: 15px; border-left: 5px solid #3498db; }
+                table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+                th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+                th { background-color: #3498db; color: white; }
+                .risk-High { color: white; background: #e74c3c; padding: 4px 8px; border-radius: 4px; font-weight: bold; }
+                .risk-Medium { color: white; background: #f39c12; padding: 4px 8px; border-radius: 4px; font-weight: bold; }
+                .suggestion { font-size: 0.9em; color: #7f8c8d; font-style: italic; }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h1>安全掃描報告</h1>
+                <div class="summary">
+                    <p><strong>掃描 ID:</strong> 074c46b2</p>
+                    <p><strong>目標 URL:</strong> http://127.0.0.1:8000</p>
+                    <p><strong>完成時間:</strong> 2026-03-23 17:13:06</p>
+                    <p><strong>發現漏洞總數:</strong> 4</p>
+                </div>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>類型</th>
+                            <th>風險等級</th>
+                            <th>觸發 URL / Action</th>
+                            <th>測試 Payload</th>
+                            <th>修補建議</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        
+                <tr>
+                    <td><strong>SQLi</strong></td>
+                    <td><span class="risk-High">High</span></td>
+                    <td><code>http://127.0.0.1:8000/login</code></td>
+                    <td><code>'</code></td>
+                    <td class="suggestion">使用預編譯查詢 (Prepared Statements) 或參數化查詢，避免直接拼接 SQL 字串。</td>
+                </tr>
+            
+                <tr>
+                    <td><strong>SQLi</strong></td>
+                    <td><span class="risk-High">High</span></td>
+                    <td><code>http://127.0.0.1:8000/login</code></td>
+                    <td><code>' OR '1'='1</code></td>
+                    <td class="suggestion">使用預編譯查詢 (Prepared Statements) 或參數化查詢，避免直接拼接 SQL 字串。</td>
+                </tr>
+            
+                <tr>
+                    <td><strong>XSS</strong></td>
+                    <td><span class="risk-Medium">Medium</span></td>
+                    <td><code>http://127.0.0.1:8000/search</code></td>
+                    <td><code><script>alert('xss')</script></code></td>
+                    <td class="suggestion">對所有使用者輸入進行 HTML 實體編碼 (Entity Encoding)，並實施 Content Security Policy (CSP)。</td>
+                </tr>
+            
+                <tr>
+                    <td><strong>XSS</strong></td>
+                    <td><span class="risk-Medium">Medium</span></td>
+                    <td><code>http://127.0.0.1:8000/search</code></td>
+                    <td><code><img src=x onerror=alert(1)></code></td>
+                    <td class="suggestion">對所有使用者輸入進行 HTML 實體編碼 (Entity Encoding)，並實施 Content Security Policy (CSP)。</td>
+                </tr>
+            
+                    </tbody>
+                </table>
+                <p style="margin-top: 40px; text-align: center; color: #bdc3c7;">報告由自動化掃描工具生成</p>
+            </div>
+        </body>
+        </html>
+        
